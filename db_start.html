@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>인천국제공항 항공사 정보 관리 시스템</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 50px;
+        }
+
+        h1, h2, h3 {
+            text-align: center;
+        }
+
+        h1, h2 {
+            color: #007bff;
+        }
+
+        h2 {
+            margin-bottom: 30px;
+        }
+
+        h3 {
+            margin-top: 30px;
+            color: black;
+        }
+
+        a {
+            color: #007bff;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .custom-file {
+            flex: 1;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="color: black;">인천국제공항 항공사 운송실적</h1>
+        <h2 style="color: black;">인천국제공항을 사용하는 모든 항공사들의 정보를 관리하는 시스템입니다.</h2>
+
+        <h3><a href='./airlinedp.php'>항공사 테이블 조회</a></h3>
+        <h3><a href='./airplanedp.php'>항공기 테이블 조회</a></h3>
+        <h3><a href='./aviationinformationdp.php'>항공 정보 테이블 조회</a></h3>
+        <h3><a href='./airlinedp2.php'>조인 테이블 조회</a></h3>
+
+        <h3 style="color: black;">데이터베이스에 CSV 파일로 업로드하기</h3>
+        <form action='insert.php' method='post'>
+            <div class='input-group'>
+                <div class='custom-file'>
+                    <input type='file' class='custom-file-input' id='customFileInput' name='file' onchange="updateFileName()"/>
+                    <label class='custom-file-label' for='customFileInput'>파일 선택</label>
+                </div>
+                <div class='input-group-append'>
+                    <button type='submit' name='submit' class='btn btn-primary'>Insert</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        function updateFileName() {
+            var fileName = document.getElementById('customFileInput').files[0].name;
+            document.querySelector('.custom-file-label').innerHTML = fileName;
+        }
+    </script>
+</body>
+</html>
